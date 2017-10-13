@@ -72,7 +72,8 @@ h1,li
     float:left;
     color:#212121;
     text-shadow: 2px 2px 2px gray;
-    width:100%
+    width:100%;
+    float:left;
 }
 /* index.html style */
 #softwareImage
@@ -117,10 +118,14 @@ footer
     width:100%;
     
 }
+figcaption
+{
+    font-size:18px;
+}
 figure
 {  
     display: flex;
-    justify-content: center;
+/*    justify-content: center;*/
     flex:0 0 25%;
 /*    display:block;*/
     background-color:lightgray;
@@ -131,12 +136,30 @@ figure
 figure img
 {
     padding:10px;
-    box-shadow: 1px 1px 1px 1px gray;
     width:100px;
     height:100px;
+    border-radius: 12px;
 }
 figcaption
 {
+    color: white;
 /*    margin:auto;*/
 /*    text-align: center;*/
+}
+#map
+{
+    float:left;
+}
+form
+{
+    float:left;
+}
+form button#submitButton
+{
+  height:50px;
+    width:590px;
+}
+form textarea#messageBox
+{
+ height:203px;   
 }
