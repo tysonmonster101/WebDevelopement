@@ -1,0 +1,142 @@
+/*Stylesheet for Crazy Bob's software*/
+/*Global Style*/
+body
+{
+    background-color: #616161;
+}
+nav
+{
+    margin:0;
+    width:100%;
+    padding:0;
+    background-color: black;
+    clear:both;
+    float:left;
+    box-shadow: 1px 1px 2px gray;
+}
+nav ul
+{
+    list-style: none;
+    text-decoration: none;
+    margin:0px;
+    padding:0px;
+}
+nav ul li a
+{
+    text-decoration: none;
+    color:lightgray;
+    padding-left:50px;
+    padding-right:50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color:black;
+    float:left;
+}
+nav ul li a:hover
+{
+    color: black;
+    background-color: lightgray;
+}
+nav .active
+{
+    background-color: lightgray;
+    color:black;
+}
+header
+{
+    display:block;
+    width 100%;
+    padding-bottom: 5px;
+    background-color: #757575;
+}
+header h1
+{
+    color: #212121;
+    text-align: center;
+    text-shadow: 2px 2px 2px gray;
+    margin:auto;
+}
+div#container img
+{
+    max-height: 375px;
+    max-width: 350px; 
+}
+h1,li
+{
+    font-family: monospace;
+}
+#content h2
+{
+    margin-left: 10px;
+    font-family: monospace;
+    float:left;
+    color:#212121;
+    text-shadow: 2px 2px 2px gray;
+    width:100%
+}
+/* index.html style */
+#softwareImage
+{
+    display:block;
+    margin:1%;
+    float:left;
+    border:10px;
+    max-height: 100px;
+    max-width: 100px;
+    border-style:groove;
+    border-color: black;
+/*
+    margin-top:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-left: 10px;
+*/
+    width: 30vw;
+    height: 30vw;
+}
+#pMain
+{
+    float:left;
+    width:57%;
+}
+footer 
+{
+    width:100%;
+    background-color: black;
+    color: gray;
+    text-align:center;
+    float:left;
+}
+/*products.html*/
+#gallery
+{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    
+}
+figure
+{  
+    display: flex;
+    justify-content: center;
+    flex:0 0 25%;
+/*    display:block;*/
+    background-color:lightgray;
+    box-shadow: 1px 1px 1px 1px gray;
+/*    css gradient*/
+    background: linear-gradient(black, gray);
+}
+figure img
+{
+    padding:10px;
+    box-shadow: 1px 1px 1px 1px gray;
+    width:100px;
+    height:100px;
+}
+figcaption
+{
+/*    margin:auto;*/
+/*    text-align: center;*/
+}
