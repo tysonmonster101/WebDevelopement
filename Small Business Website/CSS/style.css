@@ -60,6 +60,7 @@ div#container img
 {
     max-height: 375px;
     max-width: 350px; 
+    float:left;
 }
 h1,li
 {
@@ -149,9 +150,12 @@ figcaption
 #map
 {
     float:left;
+    margin-left:50px;
+    margin-top: 55px;
 }
 form
 {
+    margin-left: 50px;
     float:left;
 }
 form button#submitButton
