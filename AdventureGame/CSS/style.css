@@ -1,0 +1,54 @@
+p
+{
+    display: grid;
+}
+body
+{
+    display: grid;
+    grid-template-columns: 8.3vw 8.3vw 8.3vw 50vw 8.3vw 8.3vw 8.3vw;
+    grid-template-rows: 10vh 50vh 8.3vw 8.3vw 8.3vw;
+    background-color: black;
+    margin:0;
+}
+#screen
+{
+    display:grid;
+    grid-column-start: 4;
+    grid-row-start: 2;
+    height: 50vh;
+    width: 50vw;
+    color: red;
+    background-color: red; 
+}
+#arcadeButton1
+{
+    display:grid;
+    background-color: blue;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+#arcadeButton2
+{
+    display:grid;
+        background-color: red;
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-row-start: 4;
+}
+#arcadeButton3
+{
+    display:grid;
+        background-color: yellow;
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+#arcadeButton4
+{
+    display:grid;
+        background-color: lightgreen;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-row-start: 5;
+}
