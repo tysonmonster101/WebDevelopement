@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Javascript what a wonderful world</title>
+</head>
+
+<body>
+    
+    <div id="moneyBox"></div>
+    
+    <script>
+        var playerName = prompt("What is your name?");
+        var playerAge = prompt("What is your age?");
+        var makeMoney = confirm("do you want to make some money?");
+        if(makeMoney == true)
+        {
+            alert("Cool money is pretty awesome " + playerName + " I agree");
+            var moveBox = confirm("Would you like to move the box for money?");
+            if(moveBox == true)
+            {
+                var box = document.getElementById("moneyBox");
+                //document.getElementById("moneyBox").style.margin = "210px 210px 210px 210px";
+                box.position = "absolute";
+                box.style.left = "210px";
+                box.style.top = "500px";
+            }
+            else
+            {
+                alert("Wow your really lazy");
+            }
+        }
+        else
+        {
+            alert("Wow life is boring without money");
+        }
+      alert("yeet");
+    </script>
+</body>
+</html>
