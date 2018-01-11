@@ -1,6 +1,14 @@
-#moneyBox
+#moneyText
 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
+    background-color: lawngreen;
+    width: 100%;
+}
+.specificBusiness
+{
+    display:inline-block;
+    height:200px;
+    width:100px;
+}
+#businesses
+{
 }

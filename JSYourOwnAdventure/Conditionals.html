@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Javascript what a wonderful world</title>
+</head>
+
+<body>
+    <p id="moneyAmount">Money:$0</p>
+    <p id="xpAmount">XP: 0</p>
+    <div id="moneyBox"></div>
+    
+    <script>
+        var money = 0;
+        var xp = 0;
+        
+        var playerName = prompt("What is your name?");
+        var playerAge = prompt("What is your age?");
+        var whatColor = prompt("What color do you like?");
+        document.body.style.backgroundColor = whatColor.toLowerCase();
+        alert("Welcome " + playerName + " to this magical game where you are " + playerAge + " years old and you like the color " + whatColor);
+        var makeMoney = confirm("do you want to make some money in this magical land that is very " + whatColor + "?");
+        if(makeMoney == true)
+        {
+            alert("Cool money is pretty awesome " + playerName + " I agree");
+            var moveBox = confirm("Would you like to move the box for money?");
+            if(moveBox == true)
+            {
+                var box = document.getElementById("moneyBox");
+                box.position = "absolute";
+                box.style.marginLeft = "210px";
+                box.style.marginTop = "500px";
+                money += 5;
+            }
+            else
+            {
+                alert("Wow you're really lazy and haven't learned anything at all...");
+            }
+            updateMoney();
+        }
+        else
+        {
+            alert("Wow life is boring without money but i guess you learned a bit from this..");
+            xp += 5;
+            updateXP();
+            
+        }
+        function updateMoney()
+        {
+            var moneyText = document.getElementById("moneyAmount");
+            moneyText.innerHTML = "Money: $" + money.toString();
+        }
+        function updateXP()
+        {
+            var xpText = document.getElementById("xpAmount");
+            xpText.innerHTML = "XP: " + xp.toString();
+        }
+        var combinedValues = xp.toString() + ":" + money.toString();
+            switch(combinedValues)
+            {
+                case "0:5":
+                    alert("you rich but dumb boiii")
+                    break;
+                case "5:0":
+                    alert("you a smart boiii")
+                    break;
+                case "0:0":
+                    alert("wow you literally did nothing with your life...")
+                    break;
+                default:
+                    alert("nicely done")
+            }
+    </script>
+</body>
+</html>
