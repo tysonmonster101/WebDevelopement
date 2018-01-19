@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+    
+<body>
+    
+</body>
+    <script>
+    var playerName = prompt("What is your name?");
+        alert("that is a great name " + playerName + "!");
+        var choice = prompt("you wake up in an open field. To the west there's a cool forest, to the east there is a rainbow, to the north there is a castle, and to the south there is path leading down a hill, but you can go weast if you wanna be a meme. Which direction would you like to go?(north,east,south,west,weast)").toLowerCase();
+        switch(choice)
+        {
+            case "north":
+                choice = prompt("you come to a magical door. do you want to open the door or RUN FOR YOUR LIFE?(open,run)").toLowerCase();
+                switch(choice)
+                {
+                    case "open":
+                        choice = prompt("this castle is pretty boring but i guess you could clean or eat food(eat,clean)"); 
+                        break;
+                    case "run":
+                        choice = prompt("wow your a panzy to bad you just ran into an orc horde would you like to join them?(yes,no)");
+                        break;
+                }
+                break;
+            case "south":
+                choice = prompt("You come to two paths would you like to take the the one less traveled by?(yes,no)").toLowerCase();
+                switch(choice)
+                {
+                 case "yes": 
+                        alert("i see your a poet that's pretty lame and i don't like that so i guess you're dead?");
+                        killPlayer();
+                        break;
+                 case "no":
+                        choice = prompt("it's about time someone decides to go against poetry... you follow this path until it gets extremely foggy and you can't see anything at all would you like to try and go back?(yes,no)").toLowerCase();
+                        switch(choice)
+                            case "yes":
+                            alert("you have now lost your sense of direction completey and welp...");
+                            killPlayer();
+                            break;
+                            case "no":
+                            alert("you should have never walked down this path...");
+                            killPlayer();
+                            break;
+                        break;
+                    default:
+                        killPlayer();
+                        break;
+                }
+                break;
+            case "east":
+                choice = prompt("you come to a pot of gold would you like to grab some gold?(yes,no)").toLowerCase();
+                
+                break;
+            case "west":
+                choice = prompt("You see a bear out of the corner of your eye shall you smite it wiht your palm(yes,no)").toLowerCase();
+                
+                break;
+            case "weast":
+                choice = prompt("now that you are the true mvp do you want some money?(yes,no,weast)").toLowerCase();
+            default:
+                killPlayer;
+                break;
+        }
+        function killPlayer()
+        {
+                alert("I guess you just die?");
+        }
+    </script>
+</html>
