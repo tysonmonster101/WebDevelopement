@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+    <script>
+        var name;
+        var heatlh;
+        var money;
+        function startGame()
+        {
+        heatlh = 0;
+        money = 0;
+        }
+        function openField()
+        {
+            alert("this is a pretty boring field you can go to a few different places(castle,tavern,forest,river,cliff,weast)");
+        }
+        function castle()
+        {
+            
+        }
+        function weast()
+        {
+            var choice;
+            while(true)
+            {
+                choice = prompt("would you like to keep going weast?(yes,no)");
+                if(choice != "yes")
+                {
+                    alert("once you go weast there's no turning back...");
+                    heatlh--;
+                    checkHealth();
+                }
+            }
+        }
+        function takeDamage()
+        function checkHealth()
+        {
+            if(heatlh <= 0)
+            {
+                killPlayer();
+            }
+        }
+        function killPlayer()
+        {
+            alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + money.toString() + "\n to bad you suck at this game too OOOFFFFFF";
+            var restartGame = prompt("would you like to restart the game?(yes/no)");
+            if(restartGame == "yes")
+            {
+                startGame();
+            }
+        }
+        
+    </script>
+</html>

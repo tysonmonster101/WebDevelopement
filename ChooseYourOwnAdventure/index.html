@@ -38,6 +38,7 @@
                  case "no":
                         choice = prompt("it's about time someone decides to go against poetry... you follow this path until it gets extremely foggy and you can't see anything at all would you like to try and go back?(yes,no)").toLowerCase();
                         switch(choice)
+                            {
                             case "yes":
                             alert("you have now lost your sense of direction completey and welp...");
                             killPlayer();
@@ -50,6 +51,7 @@
                     default:
                         killPlayer();
                         break;
+                            }
                 }
                 break;
             case "east":
@@ -61,14 +63,29 @@
                 
                 break;
             case "weast":
-                choice = prompt("now that you are the true mvp do you want some money?(yes,no,weast)").toLowerCase();
+                goWeast();
             default:
-                killPlayer;
+                killPlayer();
                 break;
         }
         function killPlayer()
         {
                 alert("I guess you just die?");
+        }
+        function goWeast()
+        {
+            var userChoice;
+            while(true)
+            {
+                userChoice = prompt("would you like to continue weast?");
+                if(userChoice == "yes")
+                {
+                }
+                else
+                {
+                    alert("once you go weast you never turn back...");
+                }
+            }                
         }
     </script>
 </html>
