@@ -10,6 +10,7 @@
     
 </body>
     <script>
+        var choice;
         var name;
         var heatlh;
         var money;
@@ -17,30 +18,55 @@
         {
         heatlh = 0;
         money = 0;
+        field();
         }
-        function openField()
+        
+        
+        function field()
         {
-            alert("this is a pretty boring field you can go to a few different places(castle,tavern,forest,river,cliff,weast)");
+            choice = prompt("this is a pretty boring field you can go to a few different places where would you like to go?(castle,tavern,forest,river,cliff,weast)");
+            goSomewhere(field,choice,["castle","tavern","forest","river","cliff","weast"]);
         }
         function castle()
         {
+            goSomewhere(castle,"sdfg",["yes","no"]);
+        }
+        function tavern()
+        {
             
+        }
+        function forest()
+        {
+            
+        }
+        function river()
+        {
+            
+        }
+        function cliff()
+        {
+            alert("well this is a pretty boring cliff... i guess go back to the open field?");
+            field();
         }
         function weast()
         {
             var choice;
             while(true)
             {
-                choice = prompt("would you like to keep going weast?(yes,no)");
+                choice = prompt("would you like to keep going weast?(yes,no)").toLowerCase();
                 if(choice != "yes")
                 {
                     alert("once you go weast there's no turning back...");
-                    heatlh--;
-                    checkHealth();
+                    takeDamage(1);
                 }
             }
         }
-        function takeDamage()
+        function takeDamage(var amountOfDamage)
+        {
+            heatlh -= amountOfDamage;
+            checkHealth();
+        }
+        
         function checkHealth()
         {
             if(heatlh <= 0)
@@ -48,6 +74,7 @@
                 killPlayer();
             }
         }
+        
         function killPlayer()
         {
             alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + money.toString() + "\n to bad you suck at this game too OOOFFFFFF";
@@ -58,5 +85,32 @@
             }
         }
         
+        function goSomewhere(function sender,var actualChoice, var choiceOptions)
+        {
+            var locationChosen;
+            for(var i = 0; i < choiceOptions.length; i++)
+            {
+                if(actualChoice == choiceOptions[i])
+                {
+                    locationChosen = choiceOptions[i];
+                    if(locationChosen == "field")
+                    {
+                     field();   
+                    }
+                    else if(locationChosen == "castle")
+                    {
+                        castl
+                    }
+                    else if(locationChosen == "river")
+                    {
+                        
+                    }
+                    else if()
+                    return;
+                }
+            }
+            alert("that isn't a place my guy");
+            sender();
+        }
     </script>
 </html>
