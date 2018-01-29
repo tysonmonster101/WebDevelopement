@@ -10,17 +10,37 @@
     
 </body>
     <script>
+        function getRandomNumber(var min,var max) 
+        {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+        }
+        var inventory = 
+            {
+                bow:0,
+                arrows:0,
+                sword:0,
+                swordSharpness:0,
+                money:0,
+            }
+        var playerStats = 
+            {
+                health:5,
+                armor:0,
+                damage:1,
+                luck:5,
+            }
         var choice;
         var name;
         var heatlh;
-        var money;
         function startGame()
         {
             name = prompt("what is your great name?");
             confirm("are you sure you want to keep that great name?");
             alert("either way idc you're keeping it now...");
-        heatlh = 0;
-        money = 0;
+        heatlh = 100;
+        inventory.money = 0;
         field();
         }
         
@@ -32,11 +52,55 @@
         }
         function castle()
         {
-            goSomewhere(castle,"sdfg",["yes","no"]);
+            choice = prompt("here you see a blacksmith. Would you like to talk to him?(yes,no)");
+            if(choice == "yes")
+            {
+            goSomewhere(castle,"blacksmith",["blacksmith"]);
+            }
+            else
+            {
+                choice = prompt("well after looking around you see a few different places you can go.(field,market,wall)");
+                goSomewhere(castle,choice,["field","market","wall"]);
+            }
         }
         function tavern()
         {
-            
+            var drunkenMan =
+                {
+                    health:getRandomNumber(1,6),
+                    damage:getRandomNumber(1,11),
+                    
+                }
+            choice = prompt("you see a drunken man in the corner and he looks very angry and is coming towards you..(fight,runaway,buy him a drink)");
+            if(choice == "fight")
+            {
+                
+            }
+            else if(choice == "runaway")
+            {
+                
+            }
+            else if(choice == "buy him a drink")
+            {
+                if(inventory.money >= 1)
+                {
+                    inventory.money--;
+                    alert("you bought him a drink and he seems to be happy with you although you did lose some money... money:" + inventory.money.toString());
+                    choice = prompt("now that he's happy you can do a few different things(steal,ask for work, leave the tavern, fight)");
+                    
+                }
+                else
+                {
+                    alert("you don't have money and now he's coming at you full speed and hits you with his greatsword!");
+                    playerStats.health -= drunkenMan.damage;
+                    alert("your health:" + playerStats.health.toString());
+                    alert("drunken man health:" + drunkenMan.health.toString());
+                    while(playerStats.health > 0 || )
+                    {
+                        
+                    }
+                }
+            }
         }
         function forest()
         {
@@ -64,6 +128,14 @@
                 }
             }
         }
+        function blacksmith()
+        {
+            
+        }
+        function market()
+        {
+            
+        }
         function takeDamage(var amountOfDamage)
         {
             heatlh -= amountOfDamage;
@@ -72,7 +144,7 @@
         
         function checkHealth()
         {
-            if(heatlh <= 0)
+            if(playerStats.heatlh <= 0)
             {
                 killPlayer();
             }
@@ -80,7 +152,7 @@
         
         function killPlayer()
         {
-            alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + money.toString() + "\n to bad you suck at this game too OOOFFFFFF";
+            alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + inventory.money.toString() + "\n to bad you suck at this game too OOOFFFFFF";
             var restartGame = prompt("would you like to restart the game?(yes/no)");
             if(restartGame == "yes")
             {
@@ -88,9 +160,9 @@
             }
         }
         
-        function goSomewhere(function sender,var actualChoice, var choiceOptions)
+        function goSomewhere(sender,var actualChoice, var choiceOptions)
         {
-            var locationChosen;
+            var locationChosen = "";
             for(var i = 0; i < choiceOptions.length; i++)
             {
                 if(actualChoice == choiceOptions[i])
@@ -102,13 +174,36 @@
                     }
                     else if(locationChosen == "castle")
                     {
-                        castl
+                        castle();
+                    }
+                    else if(locationChosen == "tavern")
+                    {
+                        tavern();
+                    }
+                    else if(locationChosen == "forest")
+                    {
+                        forest();
                     }
                     else if(locationChosen == "river")
                     {
-                        
+                        river();
                     }
-                    else if()
+                    else if(locationChosen == "cliff")
+                    {
+                        cliff();
+                    }
+                    else if(locationChosen == "weast")
+                    {
+                        weast();
+                    }
+                    else if(locationChosen == "blacksmith")
+                    {
+                        blacksmith();
+                    }
+                    else if(locationChosen == "market")
+                    {
+                        market();
+                    }
                     return;
                 }
             }
