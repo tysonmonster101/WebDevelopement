@@ -69,7 +69,6 @@
                 {
                     health:getRandomNumber(1,6),
                     damage:getRandomNumber(1,11),
-                    
                 }
             choice = prompt("you see a drunken man in the corner and he looks very angry and is coming towards you..(fight,runaway,buy him a drink)");
             if(choice == "fight")
@@ -87,7 +86,6 @@
                     inventory.money--;
                     alert("you bought him a drink and he seems to be happy with you although you did lose some money... money:" + inventory.money.toString());
                     choice = prompt("now that he's happy you can do a few different things(steal,ask for work, leave the tavern, fight)");
-                    
                 }
                 else
                 {
@@ -95,7 +93,7 @@
                     playerStats.health -= drunkenMan.damage;
                     alert("your health:" + playerStats.health.toString());
                     alert("drunken man health:" + drunkenMan.health.toString());
-                    while(playerStats.health > 0 || )
+                    while(playerStats.health > 0 || drunkenMan.health > 0)
                     {
                         
                     }
