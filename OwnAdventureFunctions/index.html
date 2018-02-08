@@ -29,7 +29,7 @@
                 health:5,
                 armor:0,
                 damage:1,
-                luck:5,
+                luck:10,
             }
         var choice;
         var name;
@@ -90,12 +90,41 @@
                 else
                 {
                     alert("you don't have money and now he's coming at you full speed and hits you with his greatsword!");
-                    playerStats.health -= drunkenMan.damage;
+                    takeDamage(drunkenMan.damage);
                     alert("your health:" + playerStats.health.toString());
                     alert("drunken man health:" + drunkenMan.health.toString());
-                    while(playerStats.health > 0 || drunkenMan.health > 0)
+                    while(playerStats.health > 0 && drunkenMan.health > 0)
                     {
-                        
+                        choice = prompt("you can do 2 different things...(attack,run)");
+                        if(choice == "attack")
+                        {
+                            var tempDamage = getRandomNumber(0,playerStats.damage);
+                            drunkenMan.health -= tempDamage;
+                            alert("you attack the drunk man and do:" + getRandomNumber(0,playerStats.damage).toString() + " damage");
+                            alert("he now has " + drunkenMan.health.toString() + "hp");
+                            tempDamage = getRandomNumber(0,drunkenMan.damage);
+                            alert("he attacks you and does " +  tempDamage.toString() + " damage");
+                            alert("you now have " + playerStats.health.toString() + "hp");
+                            checkHealth(tempDamage);
+                            if(drunkenMan.health <= 0)
+                            {
+                                alert("you have slain the drunken man and got his greatsword!");
+                                inventory.sword = 1;
+                                inventory.swordSharpness = getRandomNumber(5,10);
+                                alert("greatsword damage: " + inventory.swordSharpness.toString());
+                                choice = prompt("you can now go to a few different places(field,blacksmith,fightpeeps)");
+                                goSomewhere(tavern,choice,["field","blacksmith","fightpeeps"]);
+                            }
+                        }
+                        else if(choice == "run")
+                        {
+                            var randomLuck = getRandomNumber(0,playerStats.luck);
+                            if(randomLuck >= 7)
+                            {
+                                alert("you managed to hit him over the head with a bottle and run back to the field nicely done my guy!");
+                                field();
+                            }
+                        }
                     }
                 }
             }
@@ -131,6 +160,10 @@
             
         }
         function market()
+        {
+            
+        }
+        function fightPeeps()
         {
             
         }
