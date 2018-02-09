@@ -10,7 +10,10 @@
     
 </body>
     <script>
-        function getRandomNumber(var min,var max) 
+        alert("working");
+        var foughtDrunkenMan = false;
+        var chosePet = false;
+        function getRandomNumber(min,max) 
         {
             min = Math.ceil(min);
             max = Math.floor(max);
@@ -22,18 +25,20 @@
                 arrows:0,
                 sword:0,
                 swordSharpness:0,
-                money:0,
-            }
+                money:10,
+                pet:""
+            };
         var playerStats = 
             {
                 health:5,
                 armor:0,
-                damage:1,
-                luck:10,
-            }
-        var choice;
-        var name;
-        var heatlh;
+                damage:2,
+                luck:11
+            };
+        var choice = "";
+        var name = "";
+        var heatlh = 0;
+        startGame();
         function startGame()
         {
             name = prompt("what is your great name?");
@@ -43,13 +48,12 @@
         inventory.money = 0;
         field();
         }
-        
-        
         function field()
         {
             choice = prompt("this is a pretty boring field you can go to a few different places where would you like to go?(castle,tavern,forest,river,cliff,weast)");
             goSomewhere(field,choice,["castle","tavern","forest","river","cliff","weast"]);
         }
+        
         function castle()
         {
             choice = prompt("here you see a blacksmith. Would you like to talk to him?(yes,no)");
@@ -65,25 +69,105 @@
         }
         function tavern()
         {
+            if(foughtDrunkenMan == false)
+            {
             var drunkenMan =
                 {
                     health:getRandomNumber(1,6),
-                    damage:getRandomNumber(1,11),
-                }
+                    damage:getRandomNumber(1,11)
+                };
             choice = prompt("you see a drunken man in the corner and he looks very angry and is coming towards you..(fight,runaway,buy him a drink)");
             if(choice == "fight")
             {
-                
+                alert("fight!");
+                alert("your health:" + playerStats.health.toString());
+                    alert("drunken man health:" + drunkenMan.health.toString());
+                    while(playerStats.health > 0 && drunkenMan.health > 0)
+                    {
+                        choice = prompt("you can do 2 different things...(attack,run)");
+                        if(choice == "attack")
+                        {
+                            var tempDamage = getRandomNumber(0,playerStats.damage);
+                            drunkenMan.health -= tempDamage;
+                            alert("you attack the drunk man and do:" + tempDamage.toString() + " damage");
+                            alert("he now has " + drunkenMan.health.toString() + "hp");
+                            tempDamage = getRandomNumber(0,drunkenMan.damage);
+                            takeDamage(tempDamage);
+                            alert("he attacks you and does " +  tempDamage.toString() + " damage");
+                            alert("you now have " + playerStats.health.toString() + "hp");
+                            checkHealth();
+                            if(drunkenMan.health <= 0)
+                            {
+                                foughtDrunkenMan = true;
+                                alert("you have slain the drunken man and got his greatsword!");
+                                inventory.sword = 1;
+                                inventory.swordSharpness = getRandomNumber(5,10);
+                                alert("greatsword damage: " + inventory.swordSharpness.toString());
+                                playerStats.damage += inventory.swordSharpness;
+                                choice = prompt("you can now go to a few different places(field,blacksmith)");
+                                goSomewhere(tavern,choice,["field","blacksmith"]);
+                            }
+                        }
+                        else if(choice == "run")
+                        {
+                            var randomLuck = getRandomNumber(0,playerStats.luck);
+                            if(randomLuck >= 7)
+                            {
+                                alert("you managed to hit him over the head with a bottle and run back to the field nicely done my guy!");
+                                field();
+                            }
+                        }
+                    }
             }
             else if(choice == "runaway")
             {
+                alert("lol well you tried your best but he caught ya...");
+                takeDamage(drunkenMan.damage);
+                    alert("your health:" + playerStats.health.toString());
+                    alert("drunken man health:" + drunkenMan.health.toString());
+                    while(playerStats.health > 0 && drunkenMan.health > 0)
+                    {
+                        choice = prompt("you can do 2 different things...(attack,run)");
+                        if(choice == "attack")
+                        {
+                            var tempDamage = getRandomNumber(0,playerStats.damage);
+                            drunkenMan.health -= tempDamage;
+                            alert("you attack the drunk man and do:" + tempDamage.toString() + " damage");
+                            alert("he now has " + drunkenMan.health.toString() + "hp");
+                            tempDamage = getRandomNumber(0,drunkenMan.damage);
+                            takeDamage(tempDamage);
+                            alert("he attacks you and does " +  tempDamage.toString() + " damage");
+                            alert("you now have " + playerStats.health.toString() + "hp");
+                            checkHealth();
+                            if(drunkenMan.health <= 0)
+                            {
+                                foughtDrunkenMan = true;
+                                alert("you have slain the drunken man and got his greatsword!");
+                                inventory.sword = 1;
+                                inventory.swordSharpness = getRandomNumber(5,10);
+                                alert("greatsword damage: " + inventory.swordSharpness.toString());
+                                playerStats.damage += inventory.swordSharpness;
+                                choice = prompt("you can now go to a few different places(field,blacksmith)");
+                                goSomewhere(tavern,choice,["field","blacksmith"]);
+                            }
+                        }
+                        else if(choice == "run")
+                        {
+                            var randomLuck = getRandomNumber(0,playerStats.luck);
+                            if(randomLuck >= 7)
+                            {
+                                alert("you managed to hit him over the head with a bottle and run back to the field nicely done my guy!");
+                                field();
+                            }
+                        }
+                    }
                 
             }
             else if(choice == "buy him a drink")
             {
                 if(inventory.money >= 1)
                 {
-                    inventory.money--;
+                    inventory.money-=1;
                     alert("you bought him a drink and he seems to be happy with you although you did lose some money... money:" + inventory.money.toString());
                     choice = prompt("now that he's happy you can do a few different things(steal,ask for work, leave the tavern, fight)");
                 }
@@ -100,20 +184,23 @@
                         {
                             var tempDamage = getRandomNumber(0,playerStats.damage);
                             drunkenMan.health -= tempDamage;
-                            alert("you attack the drunk man and do:" + getRandomNumber(0,playerStats.damage).toString() + " damage");
+                            alert("you attack the drunk man and do:" + tempDamage.toString() + " damage");
                             alert("he now has " + drunkenMan.health.toString() + "hp");
                             tempDamage = getRandomNumber(0,drunkenMan.damage);
+                            takeDamage(tempDamage);
                             alert("he attacks you and does " +  tempDamage.toString() + " damage");
                             alert("you now have " + playerStats.health.toString() + "hp");
-                            checkHealth(tempDamage);
+                            checkHealth();
                             if(drunkenMan.health <= 0)
                             {
+                                foughtDrunkenMan = true;
                                 alert("you have slain the drunken man and got his greatsword!");
                                 inventory.sword = 1;
                                 inventory.swordSharpness = getRandomNumber(5,10);
                                 alert("greatsword damage: " + inventory.swordSharpness.toString());
-                                choice = prompt("you can now go to a few different places(field,blacksmith,fightpeeps)");
-                                goSomewhere(tavern,choice,["field","blacksmith","fightpeeps"]);
+                                playerStats.damage += inventory.swordSharpness;
+                                choice = prompt("you can now go to a few different places(field,blacksmith)");
+                                goSomewhere(tavern,choice,["field","blacksmith"]);
                             }
                         }
                         else if(choice == "run")
@@ -128,14 +215,39 @@
                     }
                 }
             }
-        }
-        function forest()
-        {
-            
+            }
+            else
+            {
+                choice = prompt("can't really do anything here now... you kinda killed the only dude who was in here so i guess go somewhere else?(field,blacksmith)");
+                goSomewhere(tavern,choice,["field","blacksmith"]);
+            }
         }
         function river()
         {
-            
+            alert("this water seems decently deep and you see fish in it.");
+            while(true)
+            {
+            tryToCatchFish = prompt("would you like to try and grab one of the fish?(yes,no)");
+            if(tryToCatchFish == "yes")
+            {
+                if(getRandomNumber(0,playerStats.luck) > 5)
+                {
+                    playerStats.luck++;
+                    alert("you caught a fish! your luck is now: " + playerStats.luck.toString());
+                }
+                else
+                {
+                    playerStats.luck--;
+                    alert("well you missed... you must have bad luck your luck is now: " + playerStats.luck.toString());
+                }
+            }
+            else
+            {
+                alert("wow guess you're a boring person.");
+                choice = prompt("you can go to a few different places from here(field,blacksmith)");
+                goSomewhere(river,choice,["field","blacksmith"]);
+            }
+            }
         }
         function cliff()
         {
@@ -152,46 +264,156 @@
                 {
                     alert("once you go weast there's no turning back...");
                     takeDamage(1);
+                    alert("your health is now: " + playerStats.health.toString());
                 }
             }
         }
         function blacksmith()
         {
-            
+            if(inventory.sword > 0)
+            {
+                var shouldSharpenSword = prompt("the blacksmith says he will sharpen your sword(increases damage by 1) for 1 gold would you like to do that?(yes,no)");
+                if(shouldSharpenSword == "yes")
+                {
+                    if(inventory.money > 0)
+                    {
+                        inventory.money--;
+                        playerStats.damage++;
+                        inventory.swordSharpness++;
+                        alert("your sword is now this sharp: " + inventory.swordSharpness.toString());
+                        alert("you have " + inventory.money.toString() + " money left");
+                    }
+                    else
+                    {
+                        alert("you don't have enough money...");
+                        choice = prompt("the blacksmith says you have to leave now. here's your options(river,market)");
+                        goSomewhere(blacksmith,choice,["river","market"]);
+                    }
+                }
+                else
+                {
+                    choice = prompt("the blacksmith says you have to leave now. here's your options(river,market)");
+                    goSomewhere(blacksmith,choice,["river","market"]);
+                }
+            }
+            else
+            {
+            alert("there is a very greedy blacksmith here but he says he will sharpen a sword... if only you had one...");
+            }
         }
+        
+        
+        
+        
+        
+        function wall()
+        {
+            if(inventory.pet == "pikachu")
+            {
+                alert("PIKACHU WINS THE GAME oh wait a second... get gud kiddo now get out of my game you weeaboo trash :D");
+                killPlayer();
+            }
+            else
+            {
+                var bonusHealth = getRandomNumber(0,playerStats.luck);
+                alert("because of your luck you gain " + bonusHealth.toString() + "hp");
+                playerStats.health += bonusHealth;
+            var dragon = 
+                {
+                    health:getRandomNumber(10,50) - playerStats.luck,
+                    minDamage:2,
+                    maxDamage:getRandomNumber(3,10)
+                };
+            while(true)
+            {
+                var dragonDamage = getRandomNumber(dragon.minDamage,dragon.maxDamage);
+                playerStats.health -= dragonDamage;
+                alert("wow the dragon did " + dragonDamage.toString() + " damage to you");
+                alert("you now have " + playerStats.health.toString() + "hp");
+                if(playerStats.health <= 0)
+                {
+                    alert("lol you really thought you could kill a dragon well i guess we can flip a coin about it");
+                    var coinSide = prompt("(heads,tails,yeet)");
+                    if(coinSide == "yeet")
+                    {
+                        while(true)
+                        {
+                        alert("nice you win now go find something better to do with your life");
+                        alert("for reals close the browser");
+                        alert("don't be trash leave");
+                        }
+                    }
+                    else
+                    {
+                        alert("ya trash kid");
+                        killPlayer();
+                    }
+                }
+            }
+            }
+        }
+        
         function market()
         {
-            
+            alert("you see off in the distance some trouble at the wall... you start running there.");
+            wall();
         }
-        function fightPeeps()
+
+        function forest()
         {
-            
+            if(chosePet == false)
+            {
+                var petChoice = prompt("you see a lot of pets here. Which one would you like to capture?(chihuahua,turtle,deer,pikachu)");
+                if(petChoice == "chihuahua" || petChoice == "turtle" || petChoice == "deer" || petChoice == "pikachu")
+                {
+                    alert("what a great choice.");
+                    playerStats.luck += 5;
+                    alert("your luck has increased and is now: " + playerStats.luck.toString());
+                    inventory.pet = petChoice;
+                }
+                else
+                {
+                    alert("you didn't choose ya moron so now you get no pet get out of my swamp");
+                    playerStats.luck = 0;
+                    alert("your luck has decreased and is now: " + playerStats.luck.toString());
+                }
+                chosePet = true;
+            }
+            choice = prompt("you can go to a few different places(field,cliff)");
+            goSomewhere(forest,choice,["field","cliff"]);
         }
-        function takeDamage(var amountOfDamage)
+        function takeDamage(amountOfDamage)
         {
-            heatlh -= amountOfDamage;
+            playerStats.health -= amountOfDamage;
             checkHealth();
         }
         
         function checkHealth()
         {
-            if(playerStats.heatlh <= 0)
+            if(playerStats.health <= 0)
             {
                 killPlayer();
             }
         }
-        
         function killPlayer()
         {
-            alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + inventory.money.toString() + "\n to bad you suck at this game too OOOFFFFFF";
+            if(inventory.pet != "")
+            {
+                alert("lol to bad your pet " + inventory.pet + " isn't going to live without you lmao");
+            }
+            alert("you made it so far to bad you're dead...\n health:" + heatlh.toString() + "\n money:" + inventory.money.toString() + "\n to bad you suck at this game too OOOFFFFFF");
             var restartGame = prompt("would you like to restart the game?(yes/no)");
             if(restartGame == "yes")
             {
                 startGame();
             }
+            else
+            {
+                killPlayer();
+            }
         }
         
-        function goSomewhere(sender,var actualChoice, var choiceOptions)
+        function goSomewhere(sender,actualChoice, choiceOptions)
         {
             var locationChosen = "";
             for(var i = 0; i < choiceOptions.length; i++)
@@ -201,7 +423,7 @@
                     locationChosen = choiceOptions[i];
                     if(locationChosen == "field")
                     {
-                     field();   
+                     field(); 
                     }
                     else if(locationChosen == "castle")
                     {
@@ -234,6 +456,10 @@
                     else if(locationChosen == "market")
                     {
                         market();
+                    }
+                    else if(locationChosen == "wall")
+                    {
+                        wall();
                     }
                     return;
                 }
