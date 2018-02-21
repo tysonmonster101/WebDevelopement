@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<button onclick="swapImages()">what garbage pictues :D(click here to swap them)</button>
+<img class="imageGallery" src="https://newevolutiondesigns.com/images/freebies/cool-wallpaper-2.jpg" width=500px height=500px>
+<img class="imageGallery" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYssZOc2WJ0vkldYu7qUq30m-02F7iQe4mZ48mg_dO6q3fxWjz-Q" width=500px height=500px>
+<img class="imageGallery" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOsff5H9myJHRX3YK6TypREFteh5qYYfY-pM5XjkYxvXRapdD88g" width=500px height=500px>
+<img class="imageGallery" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCvYuKJhPMxkTJtjUlUxdrCeM63AFJPGJsdMbcFxbvFnpfoQIKA" width=500px height=500px>
+<img class="imageGallery" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDRxnS6iM3Lq0CAdi7pd493DP0mun8MO3qvgKTxY8MHmAqJeEc" width=500px height=500px>
+<script>
+function swapImages()
+{
+    var images = document.getElementsByClassName("imageGallery");
+    for(i = 0; i < images.length; i++)
+    {
+        images[i].style.display = "block";
+        if(i == images.length - 1)
+        {
+            swap(images[0],images[images.length - 1]);
+        }
+        else
+        {
+        swap(images[i],images[i - 1]);
+        }
+    }
+}
+function swap(firstObject,secondObject)
+{
+    var tempImage = firstObject.src;
+    firstObject.src = secondObject.src;
+    secondObject.src = tempImage;
+}
+</script>
+    </body>
+
+</html>
