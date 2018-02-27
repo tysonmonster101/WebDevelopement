@@ -16,11 +16,11 @@ function swapImages()
         images[i].style.display = "block";
         if(i == images.length - 1)
         {
-            swap(images[0],images[images.length - 1]);
+            swap(images[0],images[images.length]);
         }
         else
         {
-        swap(images[i],images[i - 1]);
+        swap(images[i],images[i + 1]);
         }
     }
 }
