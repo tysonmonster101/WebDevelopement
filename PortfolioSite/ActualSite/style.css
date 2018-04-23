@@ -27,8 +27,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#484848', end
     color:white;
     padding-left:20px;
     padding-right:20px;
-    margin-top: auto;
-    margin-bottom: auto;
+    padding-top: 20px;
+    padding-bottom:20px;
 }
 .menuBarItem:hover
 {
@@ -38,4 +38,10 @@ body
 {
     margin: 0;
     background-color: #1e88e5;
+    
+}
+.gallery
+{
+    width:200px;
+    height: 200px;
 }
