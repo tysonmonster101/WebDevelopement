@@ -27,12 +27,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#484848', end
     color:white;
     padding-left:20px;
     padding-right:20px;
-    padding-top: 20px;
-    padding-bottom:20px;
+    padding-top: 15px;
+    padding-bottom:15px;
 }
 .menuBarItem:hover
 {
-    background-color: red;
+    background-color: #6ab7ff;
 }
 body
 {
