@@ -4,14 +4,17 @@ $(document).ready(function()
 {
     galleryImages = $(".gallery");
     var incrementAmount = screen.width/galleryImages.length;
-    alert(screen.width);
-    alert(incrementAmount);
-    
-    for (var i = 0; i < galleryImages.length; i++)
+
+    for (var i = 0; i < galleryImages.length/2; i++)
     {
-        $(galleryImages[i]).css("width","100px");
-        $(galleryImages[i]).css("zIndex",i.toString());
-        $(galleryImages[i]).css("left",(incrementAmount * i).toString());
+        //$(galleryImages[i]).css("width","100px");
+        $(galleryImages[i]).css("z-index",i);
+        //galleryImages[i].style.width = "10px";
+    }
+    for (var i = galleryImages.length; i > galleryImages.length/2; i--)
+    {
+        //$(galleryImages[i]).css("width","100px");
+        $(galleryImages[i]).css("z-index",-i);
         //galleryImages[i].style.width = "10px";
     }
     //$("#trash").style.backgroundColor = "red";
