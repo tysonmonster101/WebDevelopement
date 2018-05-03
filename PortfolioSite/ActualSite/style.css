@@ -40,6 +40,11 @@ body
     background-color: #1e88e5;
     
 }
+#portfolio
+{
+    display: flex;
+    justify-content: center;
+}
 .gallery
 {
     width: 150px;
