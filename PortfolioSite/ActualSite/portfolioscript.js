@@ -6,14 +6,14 @@ var imageCount;
 var leftOffset;
 var imageSize = "150px";
 var focusedImageSize = "250px";
-var namesOfImages = ["firstImage","secondImage","thirdImage","fourthImage","fifthImage","sixthImage","seventhImage"];
-var imageDescriptions = ["first description is awesome",
-                         "second description is awesome",
-                         "third description is awesome",
-                         "fourth description is awesome",
-                         "fifth description is awesome",
-                         "sixth description is awesome",
-                         "seventh description is awesome"];
+var namesOfImages = ["C#","C++","ATMIS","Linux","Ruby","Seek","Unity"];
+var imageDescriptions = ["This is my favorite programming language. I have made lots of programs such as my CPUOptimizer that allows you to mass modify affinity levels. I have been learning and using C# for 3.5 years now",
+                         "I love this language. I particularlly like to mess with the windows api and am currently working on a window dimmer. I have been learning and using C++ for 2 years now",
+                         "This was my first app/game I have ever fully finished and published. https://play.google.com/store/apps/details?id=com.tysonthedev.AllThatMattersIsSPEED",
+                         "I have around a year of experience with Ubuntu(mainly terminal). I have learned to manage permissions and write scripts in BASH.",
+                         "I love this languages flexibility. I have written a couple webscrapers using Ruby and it is by far the best when it comes to webscraping and flexibility. I have been learning and using ruby for 6 months.",
+                         "Seek is where I am currently employed making Augmented Reality Experiences and extending their SDK. I have been employed for a month now.",
+                         "Unity is my favorite game engine and I have been learning and using it for 3.5 years now"];
 
 
 function fixZIndex()
@@ -99,4 +99,5 @@ $(document).ready(function()
         $(galleryImages[galleryImages.length - i]).css("z-index",i);
     }
         fixZIndex();
+    $(galleryImages[(imageCount - 1)/2]).click();
 });
