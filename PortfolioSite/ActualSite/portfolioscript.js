@@ -86,8 +86,8 @@ $(".gallery").click(function()
 $(document).ready(function()
 {
     galleryImages = $(".gallery");
-    nameOfImage = $("#nameOfImage");
-    imageDescription = $("#descriptionText");
+    nameOfImage = $(".nameOfImage");
+    imageDescription = $(".descriptionText");
     $("#portfolio").css("height",focusedImageSize);
     imageCount = galleryImages.length;
     for (var i = 0; i < galleryImages.length/2; i++)
