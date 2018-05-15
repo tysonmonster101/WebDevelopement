@@ -1,3 +1,17 @@
+#contactMe
+{
+    text-align: center;
+}
+#contactMe text
+{
+    width: 300px;
+}
+#contactMe textarea
+{
+    
+    width: 500px;
+    height: 300px;
+}
 .imageAndDescription
 {
     display: flex;
@@ -128,8 +142,10 @@ body
 p
 {
     font-family: 'Ubuntu', sans-serif;
+    color:white;
 }
 h1
 {
     font-family: 'Ubuntu', sans-serif;
+    color:white;
 }
