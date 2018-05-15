@@ -69,17 +69,19 @@
 }
 .imageDescription
 {
+    display: block;
+    align-self: center;
     height: 200px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px;
     padding:.5%;
-    position:absolute;
     background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
     /*background-color: #5d5d5d;*/
     width: 30%;
+    margin: auto;
+    margin-top: 1%;
     text-align: center;
-    margin: 1%;
-    float:left;
+    /*margin: 1%;*/
     /*
     margin-left: auto;
     margin-right: auto;
