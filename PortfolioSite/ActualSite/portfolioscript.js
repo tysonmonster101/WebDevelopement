@@ -4,8 +4,8 @@ var imageDescription;
 var zPositions;
 var imageCount;
 var leftOffset;
-var imageSize = "150px";
-var focusedImageSize = "250px";
+var imageSize;
+var focusedImageSize;
 var namesOfImages = ["C#","C++","ATMIS","Linux","Ruby","Seek","Unity"];
 var imageDescriptions = ["This is my favorite programming language. I have made lots of programs such as my CPUOptimizer that allows you to mass modify affinity levels. I have been learning and using C# for 3.5 years now",
                          "I love this language. I particularlly like to mess with the windows api and am currently working on a window dimmer. I have been learning and using C++ for 2 years now",
@@ -85,9 +85,13 @@ $(".gallery").click(function()
 
 $(document).ready(function()
 {
+	//imageSize = /1920 * $(window).width();
     galleryImages = $(".gallery");
     nameOfImage = $(".nameOfImage");
     imageDescription = $(".descriptionText");
+	imageSize = $(galleryImages[0]).width();
+	alert(imageSize);
+	focusedImageSize = $(galleryImages).width() + 100;
     $("#portfolio").css("height",focusedImageSize);
     imageCount = galleryImages.length;
     for (var i = 0; i < galleryImages.length/2; i++)
