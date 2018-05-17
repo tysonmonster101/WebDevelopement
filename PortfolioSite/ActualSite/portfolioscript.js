@@ -12,7 +12,7 @@ var imageDescriptions = ["This is my favorite programming language. I have made 
                          "This was my first app/game I have ever fully finished and published. https://play.google.com/store/apps/details?id=com.tysonthedev.AllThatMattersIsSPEED",
                          "I have around a year of experience with Ubuntu(mainly terminal). I have learned to manage permissions and write scripts in BASH.",
                          "I love this languages flexibility. I have written a couple webscrapers using Ruby and it is by far the best when it comes to webscraping and flexibility. I have been learning and using ruby for 6 months.",
-                         "Seek is where I am currently employed making Augmented Reality Experiences and extending their SDK. I have been employed for a month now.",
+                         "Seek is where I made Augmented Reality Experiences and extending their SDK. I have been employed for a month now.",
                          "Unity is my favorite game engine and I have been learning and using it for 3.5 years now"];
 
 
@@ -41,7 +41,9 @@ $(".gallery").click(function()
             {
                 zPositions[b] = b;
             }
-            if(i < galleryImages.length/2)
+            if($(window).width() > 1080)
+            {
+	           if(i < galleryImages.length/2)
             {
                 leftOffset = distanceFromCenter * 100 - 25;
             }
@@ -52,6 +54,22 @@ $(".gallery").click(function()
             else
             {
                 leftOffset = 25;
+            }
+            }
+            else
+            {
+            if(i < galleryImages.length/2)
+            {
+                leftOffset = distanceFromCenter * 50 - 25;
+            }
+            else if(i > galleryImages.length/2)
+            {
+                leftOffset = distanceFromCenter * -50 - 25;
+            }
+            else
+            {
+                leftOffset = 25;
+            }
             }
         }
     }
@@ -89,9 +107,15 @@ $(document).ready(function()
     galleryImages = $(".gallery");
     nameOfImage = $(".nameOfImage");
     imageDescription = $(".descriptionText");
-	imageSize = $(galleryImages[0]).width();
-	alert(imageSize);
-	focusedImageSize = $(galleryImages).width() + 100;
+	imageSize = $(galleryImages[0]).width() + "px";
+    if($(window).width() > 1080)
+    {
+	   focusedImageSize = $(galleryImages).width() + 100 + "px";
+    }
+    else
+    {
+        focusedImageSize = $(galleryImages).width() + 50 + "px";
+    }
     $("#portfolio").css("height",focusedImageSize);
     imageCount = galleryImages.length;
     for (var i = 0; i < galleryImages.length/2; i++)

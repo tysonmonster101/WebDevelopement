@@ -1,7 +1,25 @@
 @media (min-width:1080px)
 {
+#awardsPage
+{
+    text-align: center;
+    margin:auto;
+    width: 90vw;
+    border-radius: 50px;
+    background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
+}
+.certificate
+{
+    width:666px;
+    height:500px;
+}
 #contactMe
 {
+    margin:auto;
+    border-radius: 50px;
+    width: 600px;
+    height: 700px;
+    background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
     text-align: center;
 }
 #contactMe text
@@ -12,23 +30,21 @@
 {
     
     width: 500px;
-    height: 300px;
+    height: 350px;
 }
 .imageAndDescription
 {
-    display: flex;
-    align-content: flex-start;
+    margin-top: 100px;
+    text-align:center;
 }
 .imageAndDescription img
 {
-    width: 200px;
-    height: 200px;
+    height: 600px;
 }
 #homepage p
 {
     text-align: center;
     color:white;
-    margin-bottom: 100px;
 }
 #jobTitle
 {
@@ -79,7 +95,7 @@
     padding:.5%;
     background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
     /*background-color: #5d5d5d;*/
-    width: 30%;
+    width: 500px;
     margin: auto;
     margin-top: 1%;
     text-align: center;
@@ -155,10 +171,32 @@ h1
     color:white;
 }
 }
+
+
+
+
 @media (max-width: 1080px)
 {
-	#contactMe
+#awardsPage
 {
+    text-align: center;
+    margin:auto;
+    width: 90vw;
+    border-radius: 50px;
+    background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
+}
+.certificate
+{
+    width:399px;
+    height:300px;
+}
+#contactMe
+{
+    margin:auto;
+    border-radius: 50px;
+    width: 400px;
+    height: 700px;
+    background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
     text-align: center;
 }
 #contactMe text
@@ -168,8 +206,8 @@ h1
 #contactMe textarea
 {
     
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 #allImagesAndDescriptions
 {
@@ -180,18 +218,17 @@ h1
 .imageAndDescription
 {
 	text-align:center;
+    margin-top: 50px;
 }
 
 .imageAndDescription img
 {
-	width: 200px;
 	height: 200px;
 }
 #homepage p
 {
     text-align: center;
     color:white;
-    margin-bottom: 100px;
 }
 #jobTitle
 {
@@ -242,7 +279,7 @@ h1
     padding:.5%;
     background: linear-gradient(180deg, rgba(72,72,72,1) 0%, rgba(126,126,126,1) 100%);
     /*background-color: #5d5d5d;*/
-    width: 30%;
+    width: 300px;
     margin: auto;
     margin-top: 1%;
     text-align: center;
@@ -263,6 +300,7 @@ h1
 {
     display: flex;
     position:static;
+    justify-content: center;
     width:100vw;
     height: 50px;
     background: rgb(72,72,72);
@@ -300,12 +338,12 @@ body
 
 .gallery
 {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin-left: -50px;
     position:relative;
     /*left fixes the offset to make it centered on the website*/
-    left: 25px;
+    left: 100px;
 }
 p
 {
